@@ -6,6 +6,128 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+
+        
+
+
+
+
+
+
+
+
+    // class Book {
+
+    // #page = 1
+
+    // constructor (title, pages) {
+    //     this.title = title
+    //     this.pages = pages
+    // }
+
+    // get page () {
+    //     return this.#page
+    // }
+
+    // nextPage () {
+    //     if (this.#page < this.pages) {
+    //         this.#page++
+    //     }
+    // }
+
+    // close () {
+    //     this.#page = 1
+    // }
+    // }
+
+    // class Library {
+
+    // #books = []
+
+    // addBook(book) {
+    //     this.#books.push(book)
+    // }
+
+    // addBooks(books) {
+    //     books.forEach(this.addBook, this)
+    // }
+
+    // findBooksByLetter(letter) {
+    //     return this.#books.filter((book) => book.title[0].toLowerCase() === letter.toLowerCase())
+    // }
+
+    // }
+
+
+
+
+
+
+
+
+
+
+
+// class Student {
+
+// #notes = []
+
+// get notes () {
+//     return this.#notes // On a le droit d'y accéder depuis la classe
+// }
+
+// }
+// const a = new Student()
+// a.#notes // Private field '#notes' must be declared in an enclosing class
+// a.notes // []
+
+
+
+
+
+
+
+
+
+//         class Student {
+
+// // La propriété sera automatiquement placée sur l'objet lors de sa construction
+// notes = []
+
+// // La méthode constructor permet d'indiquer comment le type sera construit
+// constructor (firstname, lastname) {
+//     // this permettra d'accéder à l'objet construit
+//     this.firstname = firstname
+//     this.lastname = lastname
+// }
+
+// // On peut ajouter des méthodes, this fera référence à l'objet sur lequel on utilisera la méthode
+// addNote (note) {
+//     this.notes.push(note)
+// }
+
+// // On peut créer des getters, ce sont des sortes de propriétés magiques qui ont une logique
+// get fullname () {
+//     return `${this.firstname} ${this.lastname}`
+// }
+
+// get moyenne () {
+//     let sum = 0
+//     for (let note of this.notes) {
+//         sum += note
+//     }
+//     return sum / this.notes.length
+// }
+
+// // On peut aussi créer des setters pour ajouter de la logique
+// set name (str) {
+//     const items = str.split(' ')
+//     this.firstname = items[0]
+//     this.lastname = items[1]
+// }
+
+// }
+    </script>
 </body>
 </html>
