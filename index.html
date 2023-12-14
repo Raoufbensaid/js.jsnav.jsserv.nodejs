@@ -8,7 +8,24 @@
 <body>
     <script>
 
-        
+        const double = n => n * 2
+
+        let a = 2
+        a ??= 5
+        console.log(a)
+
+        const person = {firstname: 'John'}
+        console.log(person?.age?.toString())
+
+        const [premiereNote, ...autresNote] = [12, 17, 18]
+        console.log(premiereNote, autresNote)
+
+        const {firstName, ...rest} = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 34
+        }
+        console.log(firstName, rest)
 
 
 
