@@ -10,6 +10,125 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, deleniti illum enim nobis, ipsam asperiores voluptas odit libero suscipit repellendus repellat, nisi adipisci! Quia repudiandae, ab eius est ea iure sint laborum at vel, possimus eveniet quisquam provident. Qui adipisci quis facilis neque autem vitae voluptates, reprehenderit tempore et beatae.</p>
     
     <script type="module">
+
+        function addDays (date, days) {
+            const newDate = new Date(date.getTime())
+            newDate.setDate(newDate.getDate() + days)
+            return newDate
+        }
+
+        const YEARS = 0
+        const MONTHS = 1
+        const DAYS = 2
+        const HOURS = 3
+        const MINUTES = 4
+        const SECONDS = 5
+
+        // function addInterval(date, n, unit) {
+        //     const parts = [
+        //         date.getFullYear(),
+        //         date.getMonth(),
+        //         date.getDate(),
+        //         date.getMinutes(),
+        //         date.getSeconds(),
+        //         date.getMilliseconds()
+        //     ]
+        //     parts[unit] += n
+        //     return new Date(...parts)
+        // }
+
+        // function addInterval(date, n, unit) {
+        //     const newDateFuture = new Date(date.getTime())
+        //     switch (unit) {
+        //         case DAYS:
+        //             newDateFuture.setDate(newDateFuture.getDate() + n)
+        //             break;
+        //         case MONTHS:
+        //             newDateFuture.setMonth(newDateFuture.getMonth() + n)
+        //             break;
+        //         case YEARS:
+        //             newDateFuture.setFullYear(newDateFuture.getFullYear() + n)
+        //             break;
+        //     }
+        //     return newDateFuture
+        // }
+
+        function addInterval(date, interval) {
+            const parts = [
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate(),
+                date.getHours(),
+                date.getMinutes(),
+                date.getSeconds(),
+                date.getMilliseconds()
+            ]
+            for (const [unit, value] of Object.entries(interval)) {
+                parts[unit] += value
+            }
+            const timeDifference = (new Date(...parts).getTime() - Date.now()) / 60000;
+            console.log(timeDifference);
+console.log(new Date(...parts))
+            switch (true) {
+                case timeDifference >=  525600:
+                    const ans = Math.floor(timeDifference / 525600 );
+                    const mois = Math.floor((timeDifference % 525600) / 43200);
+                    return `${ans}ans ${mois}m`;
+                    break;
+                case timeDifference >= 43200:
+                    const moiss = Math.floor(timeDifference / 43200 );
+                    const jour = Math.floor((timeDifference % 43200) / 1440);
+                    return `${moiss}m ${jour}j`;
+                    break;
+                case timeDifference >= 1440:
+                    const jours = Math.floor(timeDifference / 1440 );
+                    const heure = Math.floor((timeDifference % 1440) / 60);
+                    return `${jours}j ${heure}h`;
+                    break;
+                case timeDifference >= 60:
+                    const heures = Math.floor(timeDifference / 60 );
+                    const minutes = Math.floor((timeDifference % 60));
+                    return `${heures}h ${minutes}m`;
+                    break;
+                default:
+                    return new Date(...parts);
+                    break
+            }
+        }
+
+        // function addIntervals(date, intervals) {
+        //     let resultDate = new Date(date.getTime());
+        //     for (const unit in intervals) {
+        //         resultDate = addInterval(resultDate, intervals[unit], unit);
+        //     }
+        //     return resultDate;
+        // }
+        
+        const today = new Date();
+        const tomorrow = addDays(today, 1)
+        const future = addInterval(today, 3, YEARS)
+        const futures = addInterval(today, {
+            [YEARS]: 1,
+            [MONTHS]: 2,
+            [DAYS]: 3,
+            [HOURS]: 4,
+            [MINUTES]: 5,
+            [SECONDS]: 0,
+        })
+
+       
+
+        // console.log(today);
+        // console.log(tomorrow);
+        // console.log(future);
+        console.log(futures);
+        // console.log(futures, `${Math.round((futures.getTime() - Date.now()) / 60000)} Minutes`);
+        // console.log(futures, `${Math.round((futures.getTime() - Date.now()) / 86400000)} Jours`);
+
+
+        
+        // console.log(Date());
+
         // (async function () {
         //     const {hello} = await import('./array.js')
         //     hello()
