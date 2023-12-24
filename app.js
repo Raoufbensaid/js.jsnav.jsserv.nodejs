@@ -1,10 +1,31 @@
-import { createReadStream, writeFile } from "node:fs";
-import { createServer } from "node:http";
+import { createServer } from "http";
 
-const server = createServer((req, res) => {
-    const url = new URL(req.url, `http://${req.headers.host}`)
-    res.write(`Bonjour ${url.searchParams.get('name')}`)
+createServer((req, res) => {
+    res.write('Bonsoir')
     res.end()
+}).listen('8888')
+
+
+
+// import { createReadStream, writeFile } from "node:fs";
+// import { createServer } from "node:http";
+// import { json, text } from "node:stream/consumers";
+
+// const server = createServer(async (req, res) => {
+//     const url = new URL(req.url, `http://${req.headers.host}`)
+//     let body = ''
+    // console.log(await text(req))
+    // res.write(`Bonjour ${(await json(req)).name}`)
+    // res.end()
+    // req.on('data', (chunk) => {
+    //     body += chunk
+    // })
+    // req.on('close', () => {
+    //     console.log(body)
+    //     res.end()
+    // })
+    // res.write(`Bonjour ${url.searchParams.get('name')}`)
+    // res.end()
     // console.log(url);
     // console.log(req.url);
     // console.log(req.headers.accept)
@@ -19,11 +40,8 @@ const server = createServer((req, res) => {
     
     // res.write('hello')
     // res.end()
-})
-server.listen('8888')
-
-
-
+// })
+// server.listen('8888')
 
 
 // import {  } from "node:fs/promises";
